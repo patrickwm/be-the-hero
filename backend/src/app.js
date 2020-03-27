@@ -1,6 +1,7 @@
 //Armazenando todas as funções na variável express
 const express = require('express');
 const cors = require('cors');
+const { errors } = require('celebrate');
 const routes = require('./routes');
 
 //variável que armazena a aplicação
@@ -11,6 +12,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
+app.use(errors());
 
-//mandando a aplicação ouvir a porta 333
-app.listen(3333);
+module.exports = app;
